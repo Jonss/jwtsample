@@ -2,7 +2,6 @@ package jupiterstein.com.jwtsample.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jupiterstein.com.jwtsample.models.CredentialsDTO;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -31,7 +30,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
 
-        System.out.println("Passo aqui");
         try {
             CredentialsDTO credentialsDTO = new ObjectMapper().readValue(request.getInputStream(), CredentialsDTO.class);
             UsernamePasswordAuthenticationToken token =

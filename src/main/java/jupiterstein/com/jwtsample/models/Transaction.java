@@ -1,5 +1,7 @@
 package jupiterstein.com.jwtsample.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,12 +16,14 @@ public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonIgnore
     Long id;
 
     private String name;
     private Integer amount;
 
     @ManyToOne
+    @JsonIgnore
     private User user;
 
 
@@ -54,4 +58,6 @@ public class Transaction {
     public void setUser(User user) {
         this.user = user;
     }
+
+
 }

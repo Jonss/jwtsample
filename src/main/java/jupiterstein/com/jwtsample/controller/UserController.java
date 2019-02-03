@@ -19,7 +19,6 @@ public class UserController {
 
     @PostMapping("/signup")
     public void create(@RequestBody User user) {
-        System.out.println(user);
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
     }
