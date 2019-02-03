@@ -40,8 +40,6 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
             UsernamePasswordAuthenticationToken auth = getAuthentication(authorization.substring(7));
             if(auth != null) {
                 SecurityContextHolder.getContext().setAuthentication(auth);
-                String username = ((UserSpringSecurity) auth.getPrincipal()).getUsername();
-                request.setAttribute("user", username);
             }
 
         }
