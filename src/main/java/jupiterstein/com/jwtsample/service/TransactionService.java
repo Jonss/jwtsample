@@ -19,6 +19,7 @@ public class TransactionService {
     private UserService userService;
 
     public Transaction create(Transaction transaction) {
+        transaction.setUser(userService.getCurrentUser());
         return transactionRepository.save(transaction);
     }
 
